@@ -98,21 +98,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
 String calcRoman(input) {
   List<int> iNum = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1];
-  List<String> rNum = [
-    'M',
-    'CM',
-    'D',
-    'CD',
-    'C',
-    'XC',
-    'L',
-    'XL',
-    'X',
-    'IX',
-    'V',
-    'IV',
-    'I'
-  ];
+  List<String> rNum = ['M', 'CM', 'D', 'CD', 'C', 'XC', 'L', 'XL', 'X', 'IX', 'V', 'IV', 'I' ];
 
   var nRomano = '';
 
