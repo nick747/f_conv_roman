@@ -63,11 +63,11 @@ class _MyHomePageState extends State<MyHomePage> {
         selectedItemColor: Colors.red,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.check_box_outline_blank),
+            icon: Icon(Icons.circle),
             label: 'To Roman',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.check_box_outline_blank),
+            icon: Icon(Icons.circle),
             label: 'To Arab',
           ),
         ],

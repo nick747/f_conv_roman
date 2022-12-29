@@ -51,7 +51,7 @@ class _ArabConvState extends State<ArabConv> {
               height: 100,
             ),
             Container(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(10.0),
               decoration: BoxDecoration(
                   border: Border.all(
                     width: 3.5,
