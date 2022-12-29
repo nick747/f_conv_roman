@@ -70,7 +70,28 @@ class _ArabConvState extends State<ArabConv> {
           ],
         ),
       ),
-      
+      floatingActionButton: FloatingActionButton(
+        child: const Icon(Icons.help),
+        onPressed: () {
+          showDialog(
+            context: context,
+            builder: (BuildContext context) {
+              return AlertDialog(
+                title: const Text('Help'),
+                content: const Text('To convert a roman number to an arab one, insert a roman number with this letters: \n I - V - X - L - C - D - M.'),
+                actions: <Widget>[
+                  ElevatedButton(
+                    child: const Text('Close'),
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                  ),
+                ],
+              );
+            },
+          );
+        },
+      ),
     );
   }
 }
