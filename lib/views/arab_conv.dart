@@ -91,19 +91,31 @@ int calcArab(String numeroRomano) {
   int risultato = 0;
 
   int ultimoValore = 0;
+  bool error = false;
 
   for (int i = numeroRomano.length - 1; i >= 0; i--) {
-    int valoreCorrente = simboliRomani[numeroRomano[i]]!;
 
-    if (valoreCorrente >= ultimoValore) {
-      risultato += valoreCorrente;
+    if ('IVXLCDM'.contains(numeroRomano[i]) && !error) {
+      int valoreCorrente = simboliRomani[numeroRomano[i]]!;
+
+      if (valoreCorrente >= ultimoValore) {
+        risultato += valoreCorrente;
+      }
+      else {
+        risultato -= valoreCorrente;
+      }
+
+      ultimoValore = valoreCorrente;
     }
     else {
-      risultato -= valoreCorrente;
+      error = true;
     }
-
-    ultimoValore = valoreCorrente;
   }
 
-  return risultato;
+  if (error) {
+    return 0;
+  } else {
+    return risultato;
+  }
+  
 }

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-
 class RomConv extends StatefulWidget {
   const RomConv({super.key});
 
@@ -10,7 +9,6 @@ class RomConv extends StatefulWidget {
 }
 
 class _RomConvState extends State<RomConv> {
-
   TextEditingController arabNum = TextEditingController();
   var pressed = false;
 
@@ -34,7 +32,7 @@ class _RomConvState extends State<RomConv> {
                 hintText: 'Arab Number',
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(15.00),
-                ), 
+                ),
               ),
             ),
             const SizedBox(
@@ -53,14 +51,16 @@ class _RomConvState extends State<RomConv> {
             Container(
               padding: const EdgeInsets.all(10.0),
               decoration: BoxDecoration(
-                  border: Border.all(
-                    width: 3.5,
-                    color: pressed ? Colors.red : Colors.white,
-                  ),
-                  borderRadius: BorderRadius.circular(8),   
+                border: Border.all(
+                  width: 3.5,
+                  color: pressed ? Colors.red : Colors.white,
                 ),
+                borderRadius: BorderRadius.circular(8),
+              ),
               child: Text(
-                pressed ? calcRoman(int.parse(arabNum.text)) : 'Insert a number',
+                pressed
+                    ? calcRoman(arabNum.text)
+                    : 'Insert a number',
                 style: TextStyle(
                     fontSize: 40,
                     fontFamily:
@@ -70,23 +70,42 @@ class _RomConvState extends State<RomConv> {
           ],
         ),
       ),
-      
     );
   }
 }
 
-
-
 String calcRoman(input) {
+
+  if (int.tryParse(input) == null) {
+    return 'Error';
+  }
+
+  int value = int.parse(input);
+
   List<int> iNum = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1];
-  List<String> rNum = ['M', 'CM', 'D', 'CD', 'C', 'XC', 'L', 'XL', 'X', 'IX', 'V', 'IV', 'I' ];
+  List<String> rNum = [
+    'M',
+    'CM',
+    'D',
+    'CD',
+    'C',
+    'XC',
+    'L',
+    'XL',
+    'X',
+    'IX',
+    'V',
+    'IV',
+    'I'
+  ];
 
   var nRomano = '';
+  
 
   for (var i = 0; i < iNum.length; i++) {
-    while (iNum[i] <= input) {
+    while (iNum[i] <= value) {
       nRomano += rNum[i];
-      input -= iNum[i];
+      value -= iNum[i];
     }
   }
 
