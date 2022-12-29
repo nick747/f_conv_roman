@@ -53,10 +53,14 @@ class _MyHomePageState extends State<MyHomePage> {
             TextField(
               controller: arabNum,
               decoration: InputDecoration(
+                suffixIcon: IconButton(
+                  onPressed: arabNum.clear,
+                  icon: const Icon(Icons.clear),
+                ),
                 hintText: 'Arab Number',
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(15.00),
-                ),
+                ), 
               ),
             ),
             const SizedBox(
