@@ -1,3 +1,5 @@
+import 'package:conv_roman/views/rom_conv.dart';
+import 'package:conv_roman/views/arab_conv.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -33,85 +35,44 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  TextEditingController arabNum = TextEditingController();
-  var pressed = false;
+  int _currentIndex = 0;
+  static List<Widget> pages = <Widget>[
+    const RomConv(),
+    const ArabConv(),
+  ];
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _currentIndex = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Arab-Roman Converter'),
+        title: const Text('Arab - Roman Converter'),
         centerTitle: true,
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          children: [
-            const SizedBox(
-              height: 20,
-            ),
-            TextField(
-              controller: arabNum,
-              decoration: InputDecoration(
-                suffixIcon: IconButton(
-                  onPressed: arabNum.clear,
-                  icon: const Icon(Icons.clear),
-                ),
-                hintText: 'Arab Number',
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(15.00),
-                ), 
-              ),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            ElevatedButton(
-              child: const Text('Convert'),
-              onPressed: () {
-                pressed = true;
-                setState(() {});
-              },
-            ),
-            const SizedBox(
-              height: 100,
-            ),
-            Container(
-              padding: const EdgeInsets.all(8.0),
-              decoration: BoxDecoration(
-                  border: Border.all(
-                    width: 3.5,
-                    color: pressed ? Colors.red : Colors.white,
-                  ),
-                  borderRadius: BorderRadius.circular(8),   
-                ),
-              child: Text(
-                pressed ? calcRoman(int.parse(arabNum.text)) : 'Insert a number',
-                style: TextStyle(
-                    fontSize: 40,
-                    fontFamily:
-                        GoogleFonts.getFont('Playfair Display').fontFamily),
-              ),
-            ),
-          ],
-        ),
+
+      body: pages[_currentIndex],
+
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _currentIndex,
+        onTap: _onItemTapped,
+        selectedItemColor: Colors.red,
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.check_box_outline_blank),
+            label: 'To Roman',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.check_box_outline_blank),
+            label: 'To Arab',
+          ),
+        ],
       ),
     );
   }
 }
 
-String calcRoman(input) {
-  List<int> iNum = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1];
-  List<String> rNum = ['M', 'CM', 'D', 'CD', 'C', 'XC', 'L', 'XL', 'X', 'IX', 'V', 'IV', 'I' ];
-
-  var nRomano = '';
-
-  for (var i = 0; i < iNum.length; i++) {
-    while (iNum[i] <= input) {
-      nRomano += rNum[i];
-      input -= iNum[i];
-    }
-  }
-
-  return nRomano;
-}

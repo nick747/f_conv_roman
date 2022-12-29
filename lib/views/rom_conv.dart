@@ -2,26 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 
-class ArabConv extends StatefulWidget {
-  const ArabConv({super.key});
+class RomConv extends StatefulWidget {
+  const RomConv({super.key});
 
   @override
-  State<ArabConv> createState() => _ArabConvState();
+  State<RomConv> createState() => _RomConvState();
 }
 
-class _ArabConvState extends State<ArabConv> {
+class _RomConvState extends State<RomConv> {
 
   TextEditingController arabNum = TextEditingController();
   var pressed = false;
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Arab-Roman Converter'),
-        centerTitle: true,
-      ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
@@ -75,9 +70,12 @@ class _ArabConvState extends State<ArabConv> {
           ],
         ),
       ),
+      
     );
   }
 }
+
+
 
 String calcRoman(input) {
   List<int> iNum = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1];
