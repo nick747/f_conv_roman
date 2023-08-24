@@ -121,15 +121,15 @@ String calcRoman(input) {
     'I'
   ];
 
-  var nRomano = '';
+  var nRoman = '';
   
 
   for (var i = 0; i < iNum.length; i++) {
     while (iNum[i] <= value) {
-      nRomano += rNum[i];
+      nRoman += rNum[i];
       value -= iNum[i];
     }
   }
 
-  return nRomano;
+  return nRoman;
 }
