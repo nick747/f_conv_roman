@@ -98,8 +98,8 @@ class _ArabConvState extends State<ArabConv> {
 
 
 
-int calcArab(String numeroRomano) {
-  var simboliRomani = {
+int calcArab(String romanNumber) {
+  var romanSymbols = {
     'I': 1,
     'V': 5,
     'X': 10,
@@ -109,24 +109,24 @@ int calcArab(String numeroRomano) {
     'M': 1000,
   };
 
-  int risultato = 0;
+  int result = 0;
 
-  int ultimoValore = 0;
+  int lastValue = 0;
   bool error = false;
 
-  for (int i = numeroRomano.length - 1; i >= 0; i--) {
+  for (int i = romanNumber.length - 1; i >= 0; i--) {
 
-    if ('IVXLCDM'.contains(numeroRomano[i]) && !error) {
-      int valoreCorrente = simboliRomani[numeroRomano[i]]!;
+    if ('IVXLCDM'.contains(romanNumber[i]) && !error) {
+      int currentValue = romanSymbols[romanNumber[i]]!;
 
-      if (valoreCorrente >= ultimoValore) {
-        risultato += valoreCorrente;
+      if (currentValue >= lastValue) {
+        result += currentValue;
       }
       else {
-        risultato -= valoreCorrente;
+        result -= currentValue;
       }
 
-      ultimoValore = valoreCorrente;
+      lastValue = currentValue;
     }
     else {
       error = true;
@@ -136,7 +136,7 @@ int calcArab(String numeroRomano) {
   if (error) {
     return 0;
   } else {
-    return risultato;
+    return result;
   }
   
 }
