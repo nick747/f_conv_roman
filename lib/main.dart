@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
         fontFamily: GoogleFonts.getFont('Poppins').fontFamily,
       ),
       debugShowCheckedModeBanner: false,
-      home: const MyHomePage(title: 'Convertitore Romano'),
+      home: const MyHomePage(title: 'Arab/Roman Convertor'),
     );
   }
 }
