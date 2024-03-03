@@ -4,8 +4,6 @@ Simple Flutter Application that convert an arab number given in input to a roman
 
 UPDATE: Now the app can convert a roman number to an arab too
 
-APK File is in `\build\app\outputs\flutter-apk\apk-release.apk`
-
-![image1](1.png)
-![image2](2.png)
-![image3](3.png)
+![image1](screenshots/1.png)
+![image2](screenshots/2.png)
+![image3](screenshots/3.png)
