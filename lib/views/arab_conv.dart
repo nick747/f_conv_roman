@@ -18,7 +18,7 @@ class _ArabConvState extends State<ArabConv> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
             const SizedBox(
@@ -71,7 +71,8 @@ class _ArabConvState extends State<ArabConv> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        child: const Icon(Icons.help),
+        backgroundColor: Colors.redAccent,
+        child: const Icon(Icons.help, color: Colors.white,),
         onPressed: () {
           showDialog(
             context: context,

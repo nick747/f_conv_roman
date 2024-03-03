@@ -18,6 +18,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.red,
         fontFamily: GoogleFonts.getFont('Poppins').fontFamily,
+        useMaterial3: true,
       ),
       debugShowCheckedModeBanner: false,
       home: const MyHomePage(title: 'Arab/Roman Convertor'),
@@ -51,7 +52,8 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Arab - Roman Converter'),
+        backgroundColor: Colors.redAccent,
+        title: const Text('Arab - Roman Converter', style: TextStyle(color: Colors.white),),
         centerTitle: true,
       ),
 
